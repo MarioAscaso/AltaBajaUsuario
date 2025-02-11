@@ -3,25 +3,25 @@ package input;
 import java.util.Scanner;
 
 public class Input {
-    private final Scanner sc = new Scanner(System.in);
-    private int valorInt;
-    private float valorFloat;
-    private String valorString;
+    private final static Scanner sc = new Scanner(System.in);
+    private static int valorInt;
+    private static float valorFloat;
+    private static String valorString;
 
-    private void recibirInt() {valorInt = sc.nextInt();}
-    public int recibirValorInt() {
+    private static void recibirInt() {valorInt = sc.nextInt();}
+    public static int recibirValorInt() {
         recibirInt();
         return valorInt;
     }
 
-    private void recibirFloat() {valorFloat = sc.nextFloat();}
-    public float recibirValorFloat() {
+    private static void recibirFloat() {valorFloat = sc.nextFloat();}
+    public static float recibirValorFloat() {
         recibirFloat();
         return valorFloat;
     }
 
-    private void recibirString() {valorString = sc.next();}
-    public String recibirValorString() {
+    private static void recibirString() {valorString = sc.next();}
+    public static String recibirTexto() {
         recibirString();
         return valorString;
     }
