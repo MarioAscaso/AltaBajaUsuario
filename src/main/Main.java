@@ -22,9 +22,6 @@ public class Main {
     private static List<Subordinado> usuarios;
 
     private static String nombre;
-    private static String apellido;
-    private static String fechaNacimiento;
-    private static String fechaAlta;
     private static float salario;
 
     public static void main(String[] args) {
@@ -32,13 +29,17 @@ public class Main {
         int opcionMenu;
         do {
             do {
-                Output.mostrarMenu();
-                opcionMenu = Input.recibirValorInt();
+                opcionMenu = mostrarYrecibirOpcion();
             } while (!Validator.validarOpcionMenu(opcionMenu));
             accion(opcionMenu);
         } while (!Validator.usuarioQuiereSalir(opcionMenu));
     }
 
+
+    private static int mostrarYrecibirOpcion(){
+        Output.mostrarMenu();
+        return Input.recibirValorInt();
+    }
 
     private static void accion(int opcionMenu){
         switch (opcionMenu) {
@@ -67,11 +68,11 @@ public class Main {
             Output.pedirNombre();
             nombre = Input.recibirTexto();
             Output.pedirApellido();
-            apellido = Input.recibirTexto();
+            String apellido = Input.recibirTexto();
             Output.pedirEdad();
-            fechaNacimiento = Input.recibirTexto();
+            String fechaNacimiento = Input.recibirTexto();
             Output.pedirFechaAlta();
-            fechaAlta = Input.recibirTexto();
+            String fechaAlta = Input.recibirTexto();
             Output.pedirSalario();
             salario = Input.recibirValorFloat();
             if(rangoTrabajo == SUBORDINADO) {
