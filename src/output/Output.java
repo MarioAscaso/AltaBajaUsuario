@@ -1,11 +1,10 @@
 package output;
 
-import rangoTrabajo.MandoIntermedio;
 import rangoTrabajo.Subordinado;
 
 public class Output {
 
-    public void mostrarMenu() {
+    public static void mostrarMenu() {
         System.out.print("""
                 
                 1. - Dar Alta Usuario
@@ -14,23 +13,20 @@ public class Output {
                 4. - Dar Baja Usuario
                 5. - Salir
                 
-                Elije opcion a realizar:""");
+                Elija opción a realizar:""");
     }
-    public void preguntarRango() {
+    public static void preguntarRango() {
         System.out.print("""
-                1. - Subordinado
-                2. - Mando Intermedio
-                Introduce (numericamente) su rango:""");
+                10. - Subordinado
+                11. - Mando Intermedio
+                Introduce (numéricamente) su rango:""");
     }
-
-    public void pedirNombre() {System.out.print("Introduce su nombre: ");}
-    public void pedirApellido() {System.out.print("Introduce su primer apellido: ");}
-    public void pedirEdad() {System.out.print("Introduce su fecha de nacimiento: ");}
-    public void pedirFechaAlta() {System.out.print("Introduce fecha de alta: ");}
-    public void pedirSalario() {System.out.print("Introduce su salario: ");}
-    public void pedirComision() {System.out.print("Introduce su comision por venta: ");}
-    public void mostrarUsuarios(Subordinado subordinado) {System.out.println(subordinado);}
-
-
-    public void mensajeDespedida(){System.out.println("Cierre de sesion.");}
+    public static void pedirNombre() {System.out.print("Introduce su nombre: ");}
+    public static void pedirApellido() {System.out.print("Introduce su primer apellido: ");}
+    public static void pedirEdad() {System.out.print("Introduce su fecha de nacimiento: ");}
+    public static void pedirFechaAlta() {System.out.print("Introduce fecha de alta: ");}
+    public static void pedirSalario() {System.out.print("Introduce su salario: ");}
+    public static void pedirComision() {System.out.print("Introduce su comisión por venta: ");}
+    public static void mostrarUsuarios(Subordinado subordinado) {System.out.println(subordinado);}
+    public static void mensajeDespedida() {System.out.println("Cierre de sesión.");}
 }

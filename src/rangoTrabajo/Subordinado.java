@@ -26,5 +26,4 @@ public class Subordinado {
     public String toString() {
         return "Nombre: " + nombre + ", Apellido: " + apellido + ", Fecha de nacimiento: " + fechaNacimiento + ", Fecha de alta: " + fechaAlta + ", Salario: " + salario;
     }
-
 }
