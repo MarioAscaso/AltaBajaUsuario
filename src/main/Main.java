@@ -19,6 +19,8 @@ public class Main {
     public static final int SUBORDINADO = 10;
     public static final int MANDO_INTERMEDIO = 11;
 
+    //prueba
+
     private static List<Subordinado> usuarios;
 
     private static String nombre;
