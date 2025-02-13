@@ -19,6 +19,8 @@ public class Main {
     public static final int SUBORDINADO = 10;
     public static final int MANDO_INTERMEDIO = 11;
 
+    //prueba
+
     private static List<Subordinado> usuarios;
 
     private static String nombre;
@@ -28,11 +30,17 @@ public class Main {
         usuarios = new ArrayList<>();
         int opcionMenu;
         do {
-            do {
-                opcionMenu = mostrarYrecibirOpcion();
-            } while (!Validator.validarOpcionMenu(opcionMenu));
+            opcionMenu = getOpcionMenu();
             accion(opcionMenu);
         } while (!Validator.usuarioQuiereSalir(opcionMenu));
+    }
+
+    private static int getOpcionMenu() {
+        int opcionMenu;
+        do {
+            opcionMenu = mostrarYrecibirOpcion();
+        } while (!Validator.validarOpcionMenu(opcionMenu));
+        return opcionMenu;
     }
 
 
@@ -65,25 +73,18 @@ public class Main {
             rangoTrabajo = Input.recibirValorInt();
             estaEnRango = Validator.validarRangoTrabajador(rangoTrabajo);
         } while (!estaEnRango);
-            Output.pedirNombre();
-            nombre = Input.recibirTexto();
-            Output.pedirApellido();
-            String apellido = Input.recibirTexto();
-            Output.pedirEdad();
-            String fechaNacimiento = Input.recibirTexto();
-            Output.pedirFechaAlta();
-            String fechaAlta = Input.recibirTexto();
-            Output.pedirSalario();
-            salario = Input.recibirValorFloat();
-            if(rangoTrabajo == SUBORDINADO) {
-                usuarios.add(new Subordinado(nombre, apellido, fechaNacimiento, fechaAlta, salario));
-            }
+        Object[] datos = pedirDatos();
+        if(rangoTrabajo == SUBORDINADO) {
+            usuarios.add(new Subordinado((String)datos[0], (String)datos[1], (String)datos[2], (String)datos[3], Float.parseFloat((String)datos[4])));
+        }
         if(rangoTrabajo == MANDO_INTERMEDIO){
             Output.pedirComision();
             int comision = Input.recibirValorInt();
-            usuarios.add(new MandoIntermedio(nombre, apellido, fechaNacimiento, fechaAlta, salario, comision));
+            usuarios.add(new MandoIntermedio((String)datos[0], (String)datos[1], (String)datos[2], (String)datos[3], Float.parseFloat((String)datos[4]), comision));
         }
     }
+
+
 
     private static void mostrarListaUsuarios(List<Subordinado> usuarios) {
         for (Subordinado subordinado : usuarios) {
@@ -123,5 +124,26 @@ public class Main {
             }
             i++;
         }
+    }
+
+    private static Object[] pedirDatos() {
+        Object[] datos = new Object[5];
+        Output.pedirNombre();
+        nombre = Input.recibirTexto();
+        datos[0] = nombre;
+        Output.pedirApellido();
+        String apellido = Input.recibirTexto();
+        datos[1] = apellido;
+        Output.pedirEdad();
+        String fechaNacimiento = Input.recibirTexto();
+        datos[2] = fechaNacimiento;
+        Output.pedirFechaAlta();
+        String fechaAlta = Input.recibirTexto();
+        datos[3] = fechaAlta;
+        Output.pedirSalario();
+        salario = Input.recibirValorFloat();
+        datos[4] = salario;
+
+        return datos;
     }
 }
